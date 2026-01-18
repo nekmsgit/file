@@ -1,0 +1,55 @@
+# hard
+/boot/config.txt
+/boot/firmware/config.txt
+dtoverlay=disable-wifi
+dtoverlay=disable-bt
+
+
+# storge
+mnt
+
+# vpn
+wiregurd
+
+# docker
+docker
+
+# python
+conda
+
+# git srv
+Git
+
+# DB
+MariaDB
+sudo apt update
+sudo apt install mariadb-server
+sudo systemctl status mariadb
+sudo mysql_secure_installation
+
+
+编辑/etc/mysql/mariadb.conf.d/50-server.cnf
+注释掉 bind-address 选项
+# bind-address = 127.0.0.1
+sudo systemctl restart mariadb
+
+
+mysql -u root -p
+create database cms;
+CREATE USER 'cms'@'%' IDENTIFIED BY 'cms';
+GRANT ALL PRIVILEGES ON cms.* TO 'cms'@'%';
+FLUSH PRIVILEGES;
+
+# Http 
+Caddy
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+sudo apt update
+sudo apt install caddy
+
+# webdav
+Alist
+
+# bittorrent
+qBittorrent-nox
